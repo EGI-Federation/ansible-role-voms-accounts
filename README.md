@@ -1,5 +1,7 @@
 # Ansible Role VOMS Accounts
 
+[![Build Status](https://travis-ci.org/EGI-Foundation/ansible-role-voms-accounts.svg?branch=master)](https://travis-ci.org/EGI-Foundation/ansible-role-voms-accounts)
+
 This is an Ansible role for providing the pool accounts which are required by voms-enabled
 UMD endpoints such as worker nodes, CREAM compute elements, storage elements, _etc._.
 It follows the [YAIM 4 guide](https://twiki.cern.ch/twiki/bin/view/LCG/YaimGuide400#User_configuration_in_YAIM) on
