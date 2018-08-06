@@ -1,2 +1,10 @@
 ---
 # defaults file for ansible-role-grid-accounts
+
+# data source is also in data/vo-idcard.json
+vos:
+  - ops
+  - dteam
+data_source: http://cclavoisier01.in2p3.fr:8080/lavoisier/vo-idcard?accept=json
+roles_path: IDCard[10]['gLiteConf'][0]['FQANs'][0]  # provides array
+# role_query:

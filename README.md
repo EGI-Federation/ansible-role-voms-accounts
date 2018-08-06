@@ -17,6 +17,19 @@ None.
 ## Role Variables
 
 VOMS roles are used as input to generate the data from which to create the users.
+This data is taken from the [Operations Portal](http://cclavoisier01.in2p3.fr:8080/lavoisier/vo-idcard?accept=json), and used to generate
+the local user and group configurations.
+
+Variables which guide the behaviour of the role are kept as usual in 
+`defaults/main.yml` and `vars/main.yml`, or the site's `group_vars/`
+
+Special attention should be paid to:
+
+  - `vos` - A list of VO's which you want enabled on your site. This array has a few attributes:
+    - `vos[vo_item][name]` - the name of the VO as written in the Operations Portal
+    - `vos[vo_item][roles]`  -  the array of roles associated with the VO
+      - `vos[vo_item][roles][role_item][name]` -  the name of the role as defined on the VOMS and Operations portal
+      - `vos[vo_item][roles][role_item][pool_size]` - the size of the pool to create for the users mapped from this role.
 
 ## Dependencies
 
