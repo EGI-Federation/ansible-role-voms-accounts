@@ -8,7 +8,8 @@ testinfra_hosts = runner.AnsibleRunner(
 
 # ops group fixtures
 @pytest.mark.parametrize("groupname,gid", [
-    ("ops", "45000")
+    ("ops", 45000),
+    ("dteam",46000)
     ])
 def test_ops_groups(host, groupname, gid):
     assert host.group(groupname).exists
@@ -17,7 +18,7 @@ def test_ops_groups(host, groupname, gid):
 
 # ops user fixtures.
 @pytest.mark.parametrize("username,uid", [
-    ("ops001", "45001")
+    ("ops001", 45001)
     ])
 def test_ops_users(host, username, uid):
     assert host.user(username).name == username

@@ -1,2 +1,34 @@
 ---
 # tasks file for ansible-role-grid-accounts
+- name: Read all the data
+  include_vars:
+      file: data/vo-idcard.json
+      name: idcards
+
+# - debug:
+#     var: infrastructure_vos
+
+
+- name: Ensure Infrastructure Groups
+  include_tasks: groups.yml
+  loop: "{{infrastructure_vos}}"
+  loop_control:
+    loop_var: vo
+
+- name: Ensure Infrastructure Users
+  include_tasks: users.yml
+  loop: "{{ infrastructure_vos }}"
+  loop_control:
+    loop_var: vo
+
+- name: include groups task (Science)
+  include_tasks: groups.yml
+  loop: "{{science_vos}}"
+  loop_control:
+    loop_var: vo
+
+- name: Ensure Science Users
+  include_tasks: users.yml
+  loop: "{{ science_vos }}"
+  loop_control:
+    loop_var: vo

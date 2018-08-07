@@ -1,0 +1,19 @@
+---
+- name: "Ensure {{ vo.name }} users"
+  user:
+    name: "{{ vo.name }}{{ '%03d' | format(item) }}"
+    comment: "{{ vo.name}} pool user"
+    uid: "{{ vo.gid + uid +1 }}"
+    force: yes
+    create_home: yes
+    password_lock: yes
+    groups: "{{ vo.name }}"
+    home: "{{ vo.home_path }}/{{ vo.name }}{{ '%03d' | format(item) }}"
+    group: "{{ vo.name }}"
+    shell: /bin/bash
+    state: present
+    ssh_key_file: .ssh/id_rsa
+    ssh_key_type: rsa
+  loop: "{{ range(1, vo.pool_size + 1)|list }}"
+  loop_control:    
+    index_var: uid
