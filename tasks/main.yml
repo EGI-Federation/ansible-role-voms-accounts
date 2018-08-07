@@ -13,22 +13,22 @@
   include_tasks: groups.yml
   loop: "{{infrastructure_vos}}"
   loop_control:
-    loop_var: vo
+      loop_var: vo
 
 - name: Ensure Infrastructure Users
   include_tasks: users.yml
   loop: "{{ infrastructure_vos }}"
   loop_control:
-    loop_var: vo
+      loop_var: vo
 
 - name: include groups task (Science)
   include_tasks: groups.yml
   loop: "{{science_vos}}"
   loop_control:
-    loop_var: vo
+      loop_var: vo
 
 - name: Ensure Science Users
   include_tasks: users.yml
   loop: "{{ science_vos }}"
   loop_control:
-    loop_var: vo
+      loop_var: vo

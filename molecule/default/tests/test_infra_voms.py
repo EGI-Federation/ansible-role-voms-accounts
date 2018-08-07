@@ -9,7 +9,7 @@ testinfra_hosts = runner.AnsibleRunner(
 # ops group fixtures
 @pytest.mark.parametrize("groupname,gid", [
     ("ops", 45000),
-    ("dteam",46000)
+    ("dteam", 46000)
     ])
 def test_ops_groups(host, groupname, gid):
     assert host.group(groupname).exists

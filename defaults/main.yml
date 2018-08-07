@@ -17,16 +17,16 @@ infrastructure_vos:
     pool_size: 3
     home_path: /home
 science_vos:
-    - name: alice
-      gid: 18000
-      pool_size: 10
-      home_path: /home
-    - name: atlas
-      gid: 19000
-      pool_size: 10
-      home_path: /home
-    - name: cms
-      gid: 20000
-      pool_size: 10
-      home_path: /home
+  - name: alice
+    gid: 18000
+    pool_size: 10
+    home_path: /home
+  - name: atlas
+    gid: 19000
+    pool_size: 10
+    home_path: /home
+  - name: cms
+    gid: 20000
+    pool_size: 10
+    home_path: /home
 data_source: http://cclavoisier01.in2p3.fr:8080/lavoisier/vo-idcard?accept=json

@@ -2,18 +2,9 @@
 - set_fact:
     query: "root[?Name==`{{vo.name}}`].IDCard[].gLiteConf[].FQANs[].FQAN[*].FqanExpr"
 
-# - debug:
-#     var: query
-
-# - name: "Debug {{ vo.name }} groups"
-#   debug:
-#     var:  item
-#   loop: "{{ idcards | json_query(query) }}"
-
 - name: "Ensure {{ vo.name }} groups"
   group:
-      name: "{{ vo.name }}"
-      state: present
-      gid: "{{ vo.gid }}"
-      local: no
-      system: no
+    name: "{{ vo.name }}"
+    state: present
+    gid: "{{ vo.gid }}"
+    system: false
